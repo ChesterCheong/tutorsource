@@ -1,0 +1,9 @@
+export ENV=debug
+export PAYPAL_MODE=sandbox
+export PAYPAL_CLIENT_ID=AdH1QGgj0zV7_mjAFrtLHef799hngq_yEz0MImcm6NovhEemmTOI4Q2CG8Y4myxYGcO-2GlmpOtnHIme
+export PAYPAL_CLIENT_SECRET=EIzgnED3TqWlr9lktAvCKL57lgJCIEo5ZY4D4z1wGHI9cNnektrXMFQRlqV4v5DVsWLxUJYCwKtpVyjv
+export FIREBASE_TOKEN=9A81AODpg8m0DwpvKl50afgvafCC1TvNOUtKU81x
+export FIREBASE_URL=https://chestercheong.firebaseio.com/
+export APP_BASE_URL=http://uckk8bace91c.chestercheongwt.koding.io:3000/
+export APP_PAYPAL_SUCCESS_CALLBACK=/payment/execute/
+export APP_PAYPAL_CANCEL_CALLBACK=/payment/cancel/
