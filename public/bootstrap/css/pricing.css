@@ -15,3 +15,16 @@ and open the template in the editor.
     width:200px;
     height:500px;
 }
+.borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
+    border: none;
+}
+table{
+    width: 100%;
+    border-collapse:collapse;
+}
+
+td{
+    width: 30%;
+    text-align: left;
+    border: 1px solid black;
+}

@@ -34,6 +34,7 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="user in users">
+						    <td>{{ user.img }}</td>
 							<td>{{ user.fName }}</td>
 							<td>{{ user.lName }}</td>
 							<td>
@@ -48,6 +49,9 @@
 							</td>
 						</tr>
 						<tr>
+													<td>
+								<input type="text" id="img" ng-model="newuser.img" ng-disabled="!edit" placeholder="img">
+							</td>
 							<td>
 								<input type="text" id="firstName" ng-model="newuser.fName" ng-disabled="!edit" placeholder="First Name">
 							</td>
@@ -74,6 +78,7 @@
 			
 			function($scope, $firebase) {
 				$scope.newuser = {};
+				$scope.img = '';
 				$scope.fName = '';
 				$scope.lName = '';
 				$scope.passw1 = '';
@@ -102,6 +107,7 @@
 					if (id == 'new') {
 						$scope.edit = true;
 						$scope.incomplete = true;
+						$scope.newuser.img = '';
 						$scope.newuser.fName = '';
 						$scope.newuser.lName = '';
 						console.log("new user.");
