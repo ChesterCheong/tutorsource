@@ -21,56 +21,63 @@
 		</div>
         <div class="container" style="margin-top:100px">
 			
-			<h3>My Auction</h3>
+			<h3>Student Page</h3>
 			<form class="form-horizontal">
-			
+				
 				<table class="table borderless">
 					<thead>
 						<tr>
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Action</th>
+							<th width="20%"></th>
+							<th></th>
+							<th width="15%"></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr ng-repeat="user in users">
-						    <td>{{ user.img }}</td>
-							<td>{{ user.fName }}</td>
-							<td>{{ user.lName }}</td>
-							<td>
-							<!--
-								<button class="btn" ng-click="editUser(user.$id)">
-									<span class="glyphicon glyphicon-pencil"></span>  Edit
-								</button>
-							-->
-								<button class="btn" ng-click="deleteUser($index)">
-									<span class="glyphicon glyphicon-pencil"></span>  Delete
-								</button>
+						    <td><img ng-src='image/{{ user.img }}.jpg'></td>
+							<td><h3>{{ user.fName }}</h3>
+								<br>    
+							    {{ user.lName }}
 							</td>
-						</tr>
-						<tr>
-													<td>
-								<input type="text" id="img" ng-model="newuser.img" ng-disabled="!edit" placeholder="img">
-							</td>
-							<td>
-								<input type="text" id="firstName" ng-model="newuser.fName" ng-disabled="!edit" placeholder="First Name">
-							</td>
-							<td>
-								<input type="text" id="lastName" ng-model="newuser.lName" ng-disabled="!edit" placeholder="Last Name">
-							</td>
-							<td>
-								<button id="add" class="btn btn-success" ng-click="editUser('new')">
-									<span class="glyphicon glyphicon-user"></span>Add Auction
+							<td style="text-align:center">
+								<!-- Button trigger modal -->
+								<button class="btn btn-info" ng-click="editUser(user.$id)" data-toggle="modal" data-target="#myModal">
+									<span class="glyphicon glyphicon-pencil"></span>Add Auction
 								</button>
-								<button id="save" class="btn btn-success"  ng-click="save()">
-									<span class="glyphicon glyphicon-save"></span>Save Auction
-								</button>
+								<h4 ng-if="user.auction != null">Your Auction Price ${{ user.auction }}</h4>
+								<h4 ng-if="user.auction == null">You have not auction yet!</h4>
 							</td>
 						</tr>
 					</tbody>
 				</table>
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel">Auction</h4>
+							</div>
+							<div class="modal-body">
+								<input type="text" id="img" ng-model="newuser.img" ng-disabled="!edit" placeholder="img"><br>
+								<input type="text" id="firstName" ng-model="newuser.fName" ng-disabled="!edit" placeholder="First Name"><br>
+								<input type="text" id="lastName" ng-model="newuser.lName" ng-disabled="!edit" placeholder="Last Name"><br>
+								Auction: <input type="text" id="auction" ng-model="newuser.auction" ng-disabled="!edit" placeholder="auction">
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								<button id="save" class="btn btn-success"  ng-click="save()" data-dismiss="modal">
+									<span class="glyphicon glyphicon-save"></span>Save Auction
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
 			</form>
 		</div>
+		
 		
 		<script>
 			var myApp = angular.module("myApp", ["firebase"]);
@@ -79,6 +86,7 @@
 			function($scope, $firebase) {
 				$scope.newuser = {};
 				$scope.img = '';
+				$scope.auction = '';
 				$scope.fName = '';
 				$scope.lName = '';
 				$scope.passw1 = '';
@@ -108,6 +116,7 @@
 						$scope.edit = true;
 						$scope.incomplete = true;
 						$scope.newuser.img = '';
+						$scope.newuser.auction = '';
 						$scope.newuser.fName = '';
 						$scope.newuser.lName = '';
 						console.log("new user.");
@@ -132,8 +141,8 @@
 				};
 				
 				$scope.deleteUser = function(index){
-					$scope.users.$remove(index);
-					console.log("removing "+index);
+					//$scope.users.$remove(index);
+					console.log("removing "+ index);
 				}
 				
 			}]);
@@ -155,23 +164,7 @@
 		</script>
 		<script>
 			$(document).ready(function(){
-				$("#firstName").hide();
-				$("#lastName").hide();
-				$("#save").hide();
 				
-				$("#add").click(function(){
-					$("#firstName").show();
-					$("#lastName").show();
-					$("#save").show();
-					$("#add").hide();
-				});
-				
-				$("#save").click(function(){
-					$("#firstName").hide();
-					$("#lastName").hide();
-					$("#save").hide();
-					$("#add").show();
-				});
 			});
 		</script>
 	</body>
