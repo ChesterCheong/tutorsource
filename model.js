@@ -35,7 +35,7 @@ module.exports = {
                 {
                     "amount": {
                         "currency": "SGD",
-                        "value": "29.99"
+                        "value": "20.99"
                     },
                     "cycles": "0",
                     "frequency": "MONTH",
@@ -75,7 +75,7 @@ module.exports = {
                 {
                     "amount": {
                         "currency": "SGD",
-                        "value": "59.99"
+                        "value": "100.00"
                     },
                     "cycles": "0",
                     "frequency": "MONTH",
@@ -131,7 +131,7 @@ module.exports = {
     //sample address
     'address':{
         'line1': '1 Main St',
-        'line2': 'San Jose, CA 95131',
+        'line2': '',
         'city': 'San Jose',
         'state': 'CA',
         'postal_code': '95131',
