@@ -23,13 +23,13 @@
 			
 			<h3>My Auction</h3>
 			<form class="form-horizontal">
-			
+				
 				<table class="table borderless">
 					<thead>
 						<tr>
 							<th>Name</th>
 							<th>Auction</th>
-							<th>Action</th>
+							<!--<th>Action</th>-->
 						</tr>
 					</thead>
 					<tbody>
@@ -37,32 +37,39 @@
 							<td>{{ user.fName }}</td>
 							<td>{{ user.auction }}</td>
 							<td>
-							<!--
-								<button class="btn" ng-click="editUser(user.$id)">
+								<!--
+									<button class="btn" ng-click="editUser(user.$id)">
 									<span class="glyphicon glyphicon-pencil"></span>  Edit
-								</button>
-							-->
-								<button class="btn" ng-click="deleteAuction($index)">
-									<span class="glyphicon glyphicon-pencil"></span>  Delete
-								</button>
+									</button>
+									
+									<button class="btn" ng-click="deleteAuction($index)">
+									<span class="glyphicon glyphicon-pencil"></span>Delete
+									</button>
+								-->
 							</td>
 						</tr>
 						<tr>
 							<td>
-							<input type="text" id="img" ng-model="newuser.img" ng-disabled="!edit" placeholder="img">
-								<input type="text" id="firstName" ng-model="newuser.fName" ng-disabled="!edit" placeholder="First Name">
+								<!--
+									<input type="text" id="img" ng-model="newuser.img" ng-disabled="!edit" placeholder="img">
+									<input type="text" id="firstName" ng-model="newuser.fName" ng-disabled="!edit" placeholder="First Name">
+								-->
 							</td>
 							<td>
-								<input type="text" id="lastName" ng-model="newuser.lName" ng-disabled="!edit" placeholder="Last Name">
-								<input type="text" id="auction" ng-model="newuser.auction" ng-disabled="!edit" placeholder="auction">
+								<!--
+									<input type="text" id="lastName" ng-model="newuser.lName" ng-disabled="!edit" placeholder="Last Name">
+									<input type="text" id="auction" ng-model="newuser.auction" ng-disabled="!edit" placeholder="auction">
+								-->
 							</td>
 							<td>
-								<button id="add" class="btn btn-success" ng-click="editUser('new')">
+								<!--
+									<button id="add" class="btn btn-success" ng-click="editUser('new')">
 									<span class="glyphicon glyphicon-user"></span>Add Auction
-								</button>
-								<button id="save" class="btn btn-success"  ng-click="save()">
+									</button>
+									<button id="save" class="btn btn-success"  ng-click="save()">
 									<span class="glyphicon glyphicon-save"></span>Save Auction
-								</button>
+									</button>
+								-->
 							</td>
 						</tr>
 					</tbody>
@@ -148,15 +155,14 @@
 			newuser: {{newuser}}
 		-->
 		
-		<script>
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-			
-			ga('create', 'UA-32403946-2', 'auto');
-			ga('send', 'pageview');
-		</script>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ ga('create', 'UA-59568855-1', 'auto');
+ ga('send', 'pageview');
+ </script>
 		<script>
 			$(document).ready(function(){
 				$("#firstName").hide();
