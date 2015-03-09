@@ -21,11 +21,13 @@ app.get('/payment/create-plan', function (req, res) {
         paypal.billingPlan.create(plan, function(error, billingPlan){
             //creates the plan
             if(error){
+                res.json({'status':'error1'});
                 throw error;
             }
             //activates the plan
             paypal.billingPlan.update(billingPlan.id, model.activatePlan, function(error, response){
                 if(error){
+                    res.json({'status':'error2'});
                     throw error;
                 }
                 var plan = "";
@@ -38,6 +40,7 @@ app.get('/payment/create-plan', function (req, res) {
                 }
                 //stores the PayPal Plan ID to your plan id mapping in Firebase
                 model.firebase.child('/plans').child('/' + plan).set({'id': billingPlan.id});
+                res.json({'status':'plansuccess'});
             });
         });
     }
