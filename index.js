@@ -89,7 +89,7 @@ app.get('//payment/execute/', function (req, res) {
     console.log(req.query.token);
     if(req.query.token){
         //starts the billingAgreement and collects the money
-        paypal.billingAgreement.execute(req.query.token, {}, function(error, agreement){
+        paypal.billingAgreement.execute(req.query.token, "function", function(error, agreement){
 
                 res.json({'status':'success', 'data': agreement});
         });
