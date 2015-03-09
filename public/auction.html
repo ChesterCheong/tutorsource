@@ -35,7 +35,7 @@
 					<tbody>
 						<tr ng-repeat="user in users">
 							<td>{{ user.fName }}</td>
-							<td>{{ user.auction }}</td>
+							<td ng-if="user.auction != null">${{ user.auction }}</td>
 							<td>
 								<!--
 									<button class="btn" ng-click="editUser(user.$id)">
