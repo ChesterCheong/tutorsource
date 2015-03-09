@@ -66,7 +66,7 @@ app.get('/payment/initiate/:planId', function (req, res) {
                 //if creating the billing agreement is successful, find the approval url and redirect the user to it
                 for(var i = 0; i < agreement.links.length; i++){
                     if(agreement.links[i].rel == 'approval_url'){
-                        //res.redirect(agreement.links[i].href);
+                        res.redirect(agreement.links[i].href);
                         return;
                     }
                 }
