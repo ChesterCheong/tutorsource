@@ -66,6 +66,7 @@ app.get('/payment/initiate/:planId', function (req, res) {
                 //if creating the billing agreement is successful, find the approval url and redirect the user to it
                 for(var i = 0; i < agreement.links.length; i++){
                     if(agreement.links[i].rel == 'approval_url'){
+                        console.log(agreement.links[i].href);
                         res.redirect(agreement.links[i].href);
                         return;
                     }
@@ -86,6 +87,7 @@ app.get('/payment/initiate/:planId', function (req, res) {
 app.get('/payment/execute/', function (req, res) {
     // TODO: using information in the session, and agreement ID, store the information in Firebase
     //checks if there is a token
+    console.log(req.query.token);
     if(req.query.token){
         //starts the billingAgreement and collects the money
                 res.json({'status':'success', 'data': agreement});
