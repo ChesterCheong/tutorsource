@@ -130,7 +130,7 @@ module.exports = {
     },
     //sample address
     'address':{
-        'line1': '1 Main St',
+        'line1': '2 Main St',
         'line2': '',
         'city': 'San Jose',
         'state': 'CA',
